@@ -41,8 +41,7 @@ dependencies:
   hive_flutter: ^1.1.0
   bloc: ^9.0.0
   flutter_bloc: ^9.0.0
-
-  
+  conditional_builder_null_safety: ^0.0.6
   
 
 dev_dependencies:
