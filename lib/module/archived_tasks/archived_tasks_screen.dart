@@ -10,10 +10,8 @@ class ArchivedTasksScreen extends StatelessWidget {
     return BlocConsumer<AppCubit, Appstates>(
       listener: (context, state) {},
       builder: (context, state) {
-        return taskbuilder(
-            todolist: AppCubit.get(context).archivelist,
-            Scaffoldkey: AppCubit.get(context).scaffoldkey,
-            formkey: AppCubit.get(context).scaffoldkey);
+        var tasks = AppCubit.get(context).archivelist;
+        return todoListBuilder(tasks: tasks);
       },
     );
   }

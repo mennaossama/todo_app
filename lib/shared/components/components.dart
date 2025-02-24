@@ -1,3 +1,4 @@
+import 'package:conditional_builder_null_safety/conditional_builder_null_safety.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:todo_app/models/todo_model.dart';
@@ -347,4 +348,29 @@ Widget bottomsheet({
       .then((value) {
     AppCubit.get(context).changePresses(false);
   });
+}
+
+Widget todoListBuilder({required List<TodoModel> tasks}) {
+  return ConditionalBuilder(
+      condition: tasks.length != 0,
+      builder: (context) => taskbuilder(
+          todolist: tasks,
+          Scaffoldkey: AppCubit.get(context).scaffoldkey,
+          formkey: AppCubit.get(context).scaffoldkey),
+      fallback: (context) => Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Icon(
+                  Icons.menu,
+                  size: 100,
+                  color: Colors.grey,
+                ),
+                Text(
+                  'No Tasks Yet, Please Add Some Tasks',
+                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+                ),
+              ],
+            ),
+          ));
 }

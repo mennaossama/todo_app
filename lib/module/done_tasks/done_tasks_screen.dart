@@ -12,10 +12,8 @@ class DoneTasksScreen extends StatelessWidget {
         // TODO: implement listener
       },
       builder: (context, state) {
-        return taskbuilder(
-            todolist: AppCubit.get(context).donelist,
-            Scaffoldkey: AppCubit.get(context).scaffoldkey,
-            formkey: AppCubit.get(context).scaffoldkey);
+        var tasks = AppCubit.get(context).donelist;
+        return todoListBuilder(tasks: tasks);
       },
     );
   }
